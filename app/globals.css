@@ -1,42 +1,132 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* グローバルにスクロール禁止 */
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ReservationPage.scss */
+.reservation-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #27293d);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.reservation-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  text-align: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.reservation-container h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.availability-section {
+  margin-bottom: 20px;
+  text-align: left;
+  color: #fff;
+}
+
+.availability-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+.availability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sauna {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.sauna.available {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.sauna.unavailable {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.reservation-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.reservation-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+.reservation-form input[type="date"],
+.reservation-form input[type="email"],
+.reservation-form select,
+.reservation-form textarea {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.reservation-form input[type="date"]:focus,
+.reservation-form input[type="email"]:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.reservation-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.reservation-form button {
+  width: 100%;
+  padding: 12px;
+  background: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.reservation-form button:hover {
+  background: #00dcdc;
+  transform: scale(1.02);
+}
+
+.message {
+  font-size: 0.9rem;
+  color: #ff6b6b;
+  margin-top: 10px;
 }
